@@ -1,0 +1,38 @@
+:root {
+    --blue: #134fab;
+    --white: white;
+    --transitionTime: 0.5s;
+}
+
+#homeBackground {
+    background-image: url('https://res.cloudinary.com/dvmw658s9/image/upload/v1695067510/surfConnect/igje2czrynqv1dp99cok.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 75vh;
+}
+
+#backgroundTitle {
+    position: relative;
+    text-align: right;
+    top: 25%;
+    left: 65%;
+    margin: 0;
+    max-width: 30%;
+    font-size: 35px;
+    text-shadow: 2px 2px rgba(40, 38, 38, 0.588);
+    color: var(--white);
+}
+
+@media (max-width: 700px) {
+    #backgroundTitle {
+        top: 5%;
+        left: 0%;
+        max-width: 100%;
+        text-align: center;
+        font-size: 25px;
+        color: white;
+        text-shadow: 2px 2px rgba(40, 38, 38, 0.796);
+    }
+}

@@ -1,3 +1,5 @@
+import '../styles/home.css';
+
 function Home( {...props} ) {
     const testProp = props.test;
     
@@ -9,7 +11,9 @@ function Home( {...props} ) {
 
     return (
         <>
-            <h1>surfConnect</h1>
+            <div id='homeBackground'>
+                <h2 id='backgroundTitle'>CONNECTING SURFERS TO SURF PHOTOGRAPHERS</h2>
+            </div>
         </>
     )
 }
