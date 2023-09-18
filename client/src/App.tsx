@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 import PageNotFound from './components/PageNotFound';
 
-import { Routes, Route, Navigate, useLocation  } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   const test = 'rendered Home';
