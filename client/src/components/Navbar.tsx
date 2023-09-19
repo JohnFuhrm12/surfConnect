@@ -11,6 +11,7 @@ function Navbar() {
                     </div>
                 </Link>
                 <div id='navLinksWrapper'>
+                    <Link to='/photos' className='navLink'>Photos</Link>
                     <Link to='/login' className='navLink'>Login</Link>
                     <Link to='/signup' className='navLink'>Sign Up</Link>
                 </div>
