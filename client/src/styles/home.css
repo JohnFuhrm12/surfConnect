@@ -25,6 +25,96 @@
     color: var(--white);
 }
 
+.homeBlocks {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.homeBlock {
+    text-align: left;
+    width: 50%;
+    padding-left: 5%;
+    height: 60vh;
+}
+
+.subtitleHome {
+    font-size: 35px;
+    color: var(--blue);
+}
+
+.subtitleHomeSmall {
+    font-size: 30px;
+}
+
+.subtitleHomeSmaller {
+    font-size: 25px;
+}
+
+.subtitleHomeSmallBlue {
+    font-size: 30px;
+    color: var(--blue);
+    text-shadow: 2px 2px rgba(96, 96, 96, 0.399);
+}
+
+#surfersBlock {
+    background-image: url('https://res.cloudinary.com/dvmw658s9/image/upload/v1695087359/surfConnect/dij5ykhsupnyjckgpn0c.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    }
+
+#photographersBlock {
+    background-image: url('https://res.cloudinary.com/dvmw658s9/image/upload/v1695087363/surfConnect/icmfgpmx7ul68vqljp2a.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.homeInfoBlocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.homeInfoBlock {
+    height: 40vh;
+}
+
+#homeBlocksCard {
+    padding-inline: 10%;
+    margin-bottom: 20%;
+}
+
+#surfCardHome {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    width: 80%;
+}
+
+#surfCardIMG {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#surfCardHomeInfoWrapper {
+    background-color: var(--blue);
+    border-radius: 5px;
+}
+
+.cardTitle {
+ color: var(--white);
+}
+
+#infoBlockCard {
+    width: 50%;
+}
+
+#homeBlockCardInfo {
+    width: 50%;
+}
+
 @media (max-width: 700px) {
     #backgroundTitle {
         top: 5%;
