@@ -89,7 +89,7 @@
 #surfCardHome {
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+    margin-top: 15%;
     width: 80%;
 }
 
@@ -113,6 +113,23 @@
 
 #homeBlockCardInfo {
     width: 50%;
+}
+
+.homeInfoPara {
+    font-size: 25px;
+    text-align: left;
+}
+
+#cardInfoHomeWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cardInfoBottom {
+    color: var(--white);
+    font-size: 20px;
+    margin-top: 0;
 }
 
 @media (max-width: 700px) {

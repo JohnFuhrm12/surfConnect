@@ -21,11 +21,16 @@ function Home( {...props} ) {
                             <img id='surfCardIMG' src='https://res.cloudinary.com/dvmw658s9/image/upload/v1695088385/surfConnect/k0ebju3pdsdkp1tikdb5.jpg'/>
                             <div id='surfCardHomeInfoWrapper'>
                                 <h2 className='cardTitle'>Puerto Rico - Rincon</h2>
+                                <div id='cardInfoHomeWrapper'>
+                                    <h2 className='cardInfoBottom'>By: John</h2>
+                                    <h2 className='cardInfoBottom'>Date: 18/09/2023</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className='homeInfoBlock' id='homeBlockCardInfo'>
                         <h2 className='subtitleHome'>WELCOME TO THE BEST MARKETPLACE FOR SURF PHOTOS</h2>
+                        <p className='homeInfoPara'>At surfConnect, surfers and surf photographers are brought together. Photographers may set a price for their photos and they will sell automatically when found by a surfer. Surfers, from the comfort of home can search for their photos by spot and by session, and choose as many photos as they would like.</p>
                     </div>
                 </div>
             </div>
