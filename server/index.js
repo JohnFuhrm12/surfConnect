@@ -5,6 +5,9 @@ const app = express();
 const path = require('path');
 const { logger } = require('./middleware/logger');
 const errorHandler = require('./middleware/errorHandler');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
@@ -21,7 +24,11 @@ db.once('open', () => {
 
 app.use(logger);
 
+app.use(cors(corsOptions));
+
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname, '/public')));
 
