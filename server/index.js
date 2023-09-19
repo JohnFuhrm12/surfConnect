@@ -1,8 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
+const path = require('path');
+const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
 db.on('error', (error) => {
@@ -17,6 +21,11 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 });
 
-app.listen(3000, () => {
+app.use(express.json());
+
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
+app.listen(PORT, () => {
     console.log('Port 3000 Connected');
 });

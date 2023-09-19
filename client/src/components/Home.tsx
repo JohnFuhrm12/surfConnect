@@ -22,7 +22,7 @@ function Home( {...props} ) {
                             <div id='surfCardHomeInfoWrapper'>
                                 <h2 className='cardTitle'>Puerto Rico - Rincon</h2>
                                 <div id='cardInfoHomeWrapper'>
-                                    <h2 className='cardInfoBottom'>By: John</h2>
+                                    <h2 className='cardInfoBottom'>Photographer: John</h2>
                                     <h2 className='cardInfoBottom'>Date: 18/09/2023</h2>
                                 </div>
                             </div>

@@ -1,0 +1,87 @@
+:root {
+    --transitionTime: 0.5s;
+}
+
+#signUpWrapper {
+    text-align: left;
+}
+
+#signUpTitle {
+    font-size: 25px;
+    max-width: 30%;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.signUpInput {
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: solid 2px black;
+    outline: none;
+}
+
+.signUpInput::placeholder {
+    color: rgba(0, 0, 0, 0.659);
+}
+
+.signUpSelect {
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: solid 2px black;
+    outline: none;
+}
+
+.signUpSelect:hover {
+    cursor: pointer;
+}
+
+#signUpButton {
+    width: 40%;
+    margin-left: 60%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    transition: var(--transitionTime);
+}
+
+#signUpButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color : white;
+    transition: var(--transitionTime);
+}
+
+#loginButton {
+    width: 30%;
+    margin-left: 70%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    transition: var(--transitionTime);
+}
+
+#loginButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color : white;
+    transition: var(--transitionTime);
+}

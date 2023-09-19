@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -22,6 +23,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={ <Home {...props}/> }/>
+        <Route path='/login' element={ <Login/> }/>
         <Route path='/signup' element={ <SignUp {...props}/> }/>
         <Route path="/404" element={ <PageNotFound/> }/>
         <Route path="*" element={ <Navigate to="/404"/>}/>
