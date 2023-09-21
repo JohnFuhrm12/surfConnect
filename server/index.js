@@ -30,6 +30,9 @@ app.use('/', rootRouter);
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+const authRouter = require('./routes/auth');
+app.use('/auth', authRouter);
+
 app.all('*', (req, res) => {
     res.status(404);
     if (req.accepts('html')) {
