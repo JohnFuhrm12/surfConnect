@@ -18,9 +18,7 @@ function SignUp( {...props} ) {
 
     test();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(role);
+    function handleSubmit() {
         axios.post('http://localhost:3000/users', {
             username: email,
             password: password,
@@ -32,7 +30,6 @@ function SignUp( {...props} ) {
           .catch(function (error) {
             console.log(error);
           });
-          console.log('Submitted');
     }
 
     return (
