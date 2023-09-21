@@ -26,11 +26,6 @@ const login = asyncHandler(async (req, res) => {
     res.json(reply);
 });
 
-const logout = asyncHandler(async (req, res) => {
-
-});
-
 module.exports = {
     login,
-    logout
 };
