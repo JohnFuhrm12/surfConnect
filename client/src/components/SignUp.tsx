@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/signupLogin.css';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function SignUp( {...props} ) {
     const [firstName, setFirstname] = useState('');
@@ -9,6 +10,7 @@ function SignUp( {...props} ) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
 
     const testProp = props.test2;
     
@@ -18,7 +20,8 @@ function SignUp( {...props} ) {
 
     test();
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault();
         axios.post('http://localhost:3000/users', {
             username: email,
             password: password,
@@ -26,6 +29,7 @@ function SignUp( {...props} ) {
           })
           .then(function (response) {
             console.log(response);
+            navigate('/login');
           })
           .catch(function (error) {
             console.log(error);

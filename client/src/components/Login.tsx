@@ -1,10 +1,13 @@
 import '../styles/signupLogin.css';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Login( {...props} ) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,6 +20,9 @@ function Login( {...props} ) {
             props.setAuthedUsername(response.data);
             console.log(response.data);
             console.log(`AUTHED_AS: ${props.authedUsername}`);
+            props.setLoggedIn(true);
+            console.log(props.loggedIn);
+            navigate('/profile');
           })
           .catch(function (error) {
             console.log(error);
