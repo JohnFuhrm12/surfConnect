@@ -1,0 +1,68 @@
+:root {
+    --blue: #134fab;
+    --white: white;
+    --transitionTime: 0.3s;
+}
+
+#dashboardContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-between;
+    margin-inline: 10%;
+    margin-top: 3%;
+}
+
+#profileInfo {
+    padding: 4%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 3px rgb(77, 77, 77);
+}
+
+#purchasesContainer {
+    position: relative;
+    left: -6%;
+}
+
+#profilePicture {
+    width: 120px;
+    border-radius: 50%;
+    background-color: rgb(73, 73, 73);
+    border: solid 2px black;
+    transition: var(--transitionTime);
+    margin-bottom: 25px;
+}
+
+#profilePicture:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: var(--transitionTime);
+}
+
+.profileEditButton {
+    font-size: 18px;
+    padding: 10px;
+    background-color: white;
+    border: solid 2px var(--blue);
+    color: black;
+    border-radius: 5px;
+    transition: var(--transitionTime);
+}
+
+.profileEditButton:hover {
+    cursor: pointer;
+    background-color: var(--blue);
+    transition: var(--transitionTime);
+    border: solid 2px black;
+    color: white;
+}
+
+.profileHeader {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+#roleTitle {
+    font-style: italic;
+}
