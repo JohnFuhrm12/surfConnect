@@ -13,7 +13,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 });
 
 const createUser = asyncHandler(async (req, res) => {
-    const { firstname, lastname, username, password, role } = req.body;
+    const { firstname, lastname, username, password, role, profilepic } = req.body;
     if (!firstname || !lastname || !username || !password || !role) {
         return res.status(400).json({message: 'Missing Field'});
     };
@@ -26,7 +26,7 @@ const createUser = asyncHandler(async (req, res) => {
     // Hash Password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const userObject = { firstname, lastname, username, "password": hashedPassword, role};
+    const userObject = { firstname, lastname, username, "password": hashedPassword, role, profilepic};
     const user = await User.create(userObject);
 
     if (user) {

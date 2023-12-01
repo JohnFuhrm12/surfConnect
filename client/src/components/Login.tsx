@@ -19,12 +19,11 @@ function Login( {...props} ) {
           .then(function (response) {
             props.setAuthedUsername(response.data[0]);
             console.log(response.data);
-            console.log(`AUTHED_AS: ${props.authedUsername}`);
             props.setLoggedIn(true);
-            console.log(props.loggedIn);
             props.setRole(response.data[1]);
             props.setFirstName(response.data[2]);
             props.setLastName(response.data[3]);
+            props.setProfilePic(response.data[4]);
             navigate('/profile');
           })
           .catch(function (error) {

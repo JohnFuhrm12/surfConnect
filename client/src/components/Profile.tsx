@@ -1,7 +1,51 @@
 import '../styles/profile.css';
 import Login from './Login';
+import { useState } from 'react';
+import axios from "axios";
 
 function Profile( {...props} ) {
+    const [imageUrl, setImageUrl] = useState();
+    const [imageSelected, setImageSelected] = useState("");
+
+    const [sessionDate, setSessionDate] = useState();
+    const [sessionCountry, setSessionCountry] = useState();
+    const [sessionCity, setSessionCity] = useState();
+    const [sessionSpot, setSessionSpot] = useState();
+    const [price, setPrice] = useState();
+
+    const uploadImage = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imageSelected);
+        formData.append("upload_preset", "surfConnectUserPhotos");
+    
+        // Upload to Cloudinary and Grab URL
+        axios.post("https://api.cloudinary.com/v1_1/dvmw658s9/image/upload", formData).then((response) => {
+          console.log(response);
+          setImageUrl(response.data.url);
+        });
+    
+        console.log(imageUrl);
+    
+        // Upload Cloudinary Link and Metadata to MongoDB
+        axios.post('http://localhost:3000/photos', {
+            photographer: props.username,
+            cloudLink: imageUrl,
+            sessionDate: sessionDate,
+            sessionCountry: sessionCountry,
+            sessionCity: sessionCity,
+            sessionSpot: sessionSpot,
+            priceUSD: price
+          })
+          .then(function (response) {
+            console.log(response);
+            //navigate('/photos');
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
     return (
         <>
             {props.loggedIn? 
@@ -10,7 +54,7 @@ function Profile( {...props} ) {
                 <h2>Welcome back {props.firstName}!</h2> 
                 <div id='dashboardContainer'>
                     <div id='profileInfo'>
-                        <img id='profilePicture' src='https://res.cloudinary.com/dvmw658s9/image/upload/v1701463466/surfConnect/hhfnik5aghesyxzb25fe.png' alt='Profile'/>
+                        <img id='profilePicture' src={props.profilePic} alt='Profile IMG'/>
                         <h2 className='profileHeader'>{props.firstName} {props.lastName}</h2> 
                         <h2 className='profileHeader' id='roleTitle'>{props.role}</h2>
                     </div>
@@ -21,6 +65,23 @@ function Profile( {...props} ) {
                         <button className='profileEditButton'>Edit Profile</button>
                     </div>
                 </div>
+                {props.role == 'Photographer'? 
+                <>
+                    <div id='photographerSection'>
+                        <h2>Upload Photos</h2>
+                        <form id='photoUploadForm'>
+                            <input className='photoInput' type='text' placeholder='Country' onChange={(e) => {setSessionCountry(e.target.value)}} value={sessionCountry}/>
+                            <input className='photoInput' type='text' placeholder='City/State' onChange={(e) => {setSessionCity(e.target.value)}} value={sessionCity}/>
+                            <input className='photoInput' type='text' placeholder='Spot Name' onChange={(e) => {setSessionSpot(e.target.value)}} value={sessionSpot}/>
+                            <input className='photoInput' type='text' placeholder='Date' onChange={(e) => {setSessionDate(e.target.value)}} value={sessionDate}/>
+                            <input className='photoInput' type='text' placeholder='Price' onChange={(e) => {setPrice(e.target.value)}} value={price}/>
+                            <input className="fileInput" type='file' onChange={(event) => {setImageSelected(event.target.files[0])}}/>
+                            <button onClick={uploadImage}  id='photoUploadButton' type='submit'>Upload</button>
+                        </form>
+                    </div>
+                </> 
+                : 
+                <></>}
             </>
             : 
             <Login {...props} />}

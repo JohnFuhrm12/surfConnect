@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: 'Surfer'
+    },
+    profilepic: {
+        type: String,
+        default: 'https://res.cloudinary.com/dvmw658s9/image/upload/v1701463466/surfConnect/hhfnik5aghesyxzb25fe.png'
     }
 });
 

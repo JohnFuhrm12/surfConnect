@@ -27,7 +27,8 @@ function SignUp( {...props} ) {
             lastname: lastName,
             username: email,
             password: password,
-            role: role
+            role: role,
+            profilepic: 'https://res.cloudinary.com/dvmw658s9/image/upload/v1701463466/surfConnect/hhfnik5aghesyxzb25fe.png'
           })
           .then(function (response) {
             console.log(response);

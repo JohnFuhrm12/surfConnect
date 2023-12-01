@@ -21,7 +21,7 @@ const login = asyncHandler(async (req, res) => {
         return res.status(401).json({message: 'Invalid Username or Password'});
     };
 
-    const reply = [dbUser.username, dbUser.role, dbUser.firstname, dbUser.lastname];
+    const reply = [dbUser.username, dbUser.role, dbUser.firstname, dbUser.lastname, dbUser.profilepic, dbUser.id];
 
     res.json(reply);
 });

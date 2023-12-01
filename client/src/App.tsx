@@ -19,6 +19,7 @@ function App() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [role, setRole] = useState();
+  const [profilePic, setProfilePic] = useState('https://res.cloudinary.com/dvmw658s9/image/upload/v1701463466/surfConnect/hhfnik5aghesyxzb25fe.png');
 
   const test = 'rendered Home';
   const test2 = 'rendered SignUp';
@@ -35,7 +36,9 @@ function App() {
     lastName,
     setLastName,
     role,
-    setRole
+    setRole,
+    profilePic,
+    setProfilePic
   }
 
   return (

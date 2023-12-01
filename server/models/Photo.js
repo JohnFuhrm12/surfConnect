@@ -14,6 +14,16 @@ const photoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    sessionCountry: {
+        type: String,
+    },
+    sessionCity: {
+        type: String,
+    },
+    sessionSpot: {
+        type: String,
+        required: true
+    },
     priceUSD: {
         type: Number,
         required: true

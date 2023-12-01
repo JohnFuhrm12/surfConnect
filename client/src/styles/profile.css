@@ -66,3 +66,44 @@
 #roleTitle {
     font-style: italic;
 }
+
+#photoUploadForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+#photographerSection {
+    margin-top: 3%;
+}
+
+.photoInput {
+   background-color: white;
+   padding: 10px;
+   font-size: 18px;
+   border-radius: 5px;
+   border: solid 2px black;
+   color: black;
+}
+
+#photoUploadButton {
+    width: 20%;
+    margin-left: 80%;
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    border: solid 2px var(--blue);
+    color: black;
+    border-radius: 5px;
+    transition: var(--transitionTime);
+}
+
+#photoUploadButton:hover {
+    cursor: pointer;
+    background-color: var(--blue);
+    transition: var(--transitionTime);
+    border: solid 2px black;
+    color: white;
+}
