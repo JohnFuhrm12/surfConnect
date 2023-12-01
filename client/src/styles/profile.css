@@ -1,7 +1,7 @@
 :root {
     --blue: #134fab;
     --white: white;
-    --transitionTime: 0.3s;
+    --transitionTime: 0.5s;
 }
 
 #dashboardContainer {
@@ -86,6 +86,7 @@
    border-radius: 5px;
    border: solid 2px black;
    color: black;
+   outline: none;
 }
 
 #photoUploadButton {

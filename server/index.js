@@ -30,6 +30,9 @@ app.use('/', rootRouter);
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+const photosRouter = require('./routes/photos');
+app.use('/photos', photosRouter);
+
 const authRouter = require('./routes/auth');
 app.use('/auth', authRouter);
 
