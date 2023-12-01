@@ -1,0 +1,58 @@
+:root {
+    --blue: #134fab;
+    --white: white;
+    --transitionTime: 0.2s;
+}
+
+#mainPhotosGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 5%;
+    margin-inline: 5%;
+}
+
+.displayCard {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    transition: var(--transitionTime);
+}
+
+.displayCard:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: var(--transitionTime);
+}
+
+.displayImg {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.displayCardWrapper {
+    background-color: var(--blue);
+    border-radius: 5px;
+}
+
+.cardInfoWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cardLocationTitle {
+    color: var(--white);
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.cardInfoTitle {
+    color: var(--white);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

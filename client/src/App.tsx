@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Profile from './components/Profile';
+import Photos from './components/Photos';
 
 import PageNotFound from './components/PageNotFound';
 
@@ -34,6 +35,7 @@ function App() {
         <Route path='/' element={ <Home {...props}/> }/>
         <Route path='/login' element={ <Login {...props}/> }/>
         <Route path='/signup' element={ <SignUp {...props}/> }/>
+        <Route path='/photos' element={ <Photos {...props}/> }/>
         <Route path='/profile' element={ <Profile {...props}/> }/>
         <Route path="/404" element={ <PageNotFound/> }/>
         <Route path="*" element={ <Navigate to="/404"/>}/>
