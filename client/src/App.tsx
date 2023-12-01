@@ -16,6 +16,10 @@ function App() {
   const [authedUsername, setAuthedUsername] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [role, setRole] = useState();
+
   const test = 'rendered Home';
   const test2 = 'rendered SignUp';
 
@@ -25,7 +29,13 @@ function App() {
     authedUsername,
     setAuthedUsername,
     loggedIn,
-    setLoggedIn
+    setLoggedIn,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    role,
+    setRole
   }
 
   return (

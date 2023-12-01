@@ -38,7 +38,7 @@ function Photos( {...props} ) {
 
     return (
         <>
-            <h1>Search All Sessions</h1>
+            <h1>View All Sessions</h1>
             <div id='mainPhotosGrid'>
                 {testPhotos.map((photo) => {
                     return (

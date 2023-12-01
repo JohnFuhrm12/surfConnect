@@ -17,11 +17,14 @@ function Login( {...props} ) {
             password: password
           })
           .then(function (response) {
-            props.setAuthedUsername(response.data);
+            props.setAuthedUsername(response.data[0]);
             console.log(response.data);
             console.log(`AUTHED_AS: ${props.authedUsername}`);
             props.setLoggedIn(true);
             console.log(props.loggedIn);
+            props.setRole(response.data[1]);
+            props.setFirstName(response.data[2]);
+            props.setLastName(response.data[3]);
             navigate('/profile');
           })
           .catch(function (error) {

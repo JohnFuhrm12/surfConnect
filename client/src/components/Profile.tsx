@@ -5,7 +5,12 @@ function Profile( {...props} ) {
     return (
         <>
             {props.loggedIn? 
-            <h2>Hello {props.authedUsername}!</h2> 
+            <>
+                <h1>Dashboard</h1>
+                <h2>Welcome back {props.authedUsername}!</h2> 
+                <h2>Role: {props.role}!</h2> 
+                <h2>Name: {props.firstName} {props.lastName}</h2> 
+            </>
             : 
             <Login {...props} />}
         </>

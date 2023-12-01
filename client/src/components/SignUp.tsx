@@ -15,7 +15,7 @@ function SignUp( {...props} ) {
     const testProp = props.test2;
     
     function test() {
-        console.log(testProp);
+        console.log(firstName);
     }
 
     test();
@@ -23,6 +23,8 @@ function SignUp( {...props} ) {
     function handleSubmit(e) {
         e.preventDefault();
         axios.post('http://localhost:3000/users', {
+            firstname: firstName,
+            lastname: lastName,
             username: email,
             password: password,
             role: role
