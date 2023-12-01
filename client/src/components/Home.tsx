@@ -1,7 +1,7 @@
 import '../styles/home.css';
 
 function Home( {...props} ) {
-    const testProp = props.test;
+    const testProp = props.authedUsername;
     
     function test() {
         console.log(testProp);
