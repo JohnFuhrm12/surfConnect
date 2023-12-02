@@ -23,13 +23,16 @@ function Profile( {...props} ) {
         axios.post("https://api.cloudinary.com/v1_1/dvmw658s9/image/upload", formData).then((response) => {
           console.log(response);
           setImageUrl(response.data.url);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
     
         console.log(imageUrl);
     
         // Upload Cloudinary Link and Metadata to MongoDB
         axios.post('http://localhost:3000/photos', {
-            photographer: props.username,
+            photographer: props.authedID,
             cloudLink: imageUrl,
             sessionDate: sessionDate,
             sessionCountry: sessionCountry,

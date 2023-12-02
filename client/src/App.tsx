@@ -14,6 +14,7 @@ import { useState } from 'react';
 
 function App() {
   const [authedUsername, setAuthedUsername] = useState();
+  const [authedID, setAuthedID] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
 
   const [firstName, setFirstName] = useState();
@@ -38,7 +39,9 @@ function App() {
     role,
     setRole,
     profilePic,
-    setProfilePic
+    setProfilePic,
+    authedID,
+    setAuthedID
   }
 
   return (

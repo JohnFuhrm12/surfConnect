@@ -24,6 +24,7 @@ function Login( {...props} ) {
             props.setFirstName(response.data[2]);
             props.setLastName(response.data[3]);
             props.setProfilePic(response.data[4]);
+            props.setAuthedID(response.data[5]);
             navigate('/profile');
           })
           .catch(function (error) {
