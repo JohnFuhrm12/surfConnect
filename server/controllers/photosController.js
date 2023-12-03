@@ -11,8 +11,16 @@ const getAllPhotos = asyncHandler(async (req, res) => {
     res.json(photos);
 });
 
+const getPhotosByID = asyncHandler(async (req, res) => {
+    const photos = await Photo.find().select('-password').lean();
+    if (!photos?.length) {
+        return res.status(400).json({message: 'No Photos Found'});
+    };
+    res.json(photos);
+});
+
 const createPhoto = asyncHandler(async (req, res) => {
-    const { photographer, cloudLink, sessionDate, sessionCountry, sessionCity, sessionSpot, priceUSD } = req.body;
+    const { photographer, photographerName, cloudLink, sessionDate, sessionCountry, sessionCity, sessionSpot, priceUSD } = req.body;
     if (!photographer || !cloudLink || !sessionSpot || !priceUSD) {
         return res.status(400).json({message: 'Missing Field'});
     };
@@ -22,7 +30,7 @@ const createPhoto = asyncHandler(async (req, res) => {
         return res.status(409).json({message: 'Duplicate Username'});
     };
 
-    const photoObject = { photographer, cloudLink, sessionDate, sessionCountry, sessionCity, sessionSpot, priceUSD };
+    const photoObject = { photographer, photographerName, cloudLink, sessionDate, sessionCountry, sessionCity, sessionSpot, priceUSD };
     const photo = await Photo.create(photoObject);
 
     if (photo) {
@@ -82,6 +90,7 @@ const deletePhoto = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllPhotos,
+    getPhotosByID,
     createPhoto,
     updatePhoto,
     deletePhoto

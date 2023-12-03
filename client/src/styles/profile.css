@@ -108,3 +108,79 @@
     border: solid 2px black;
     color: white;
 }
+
+.profileSubtitle {
+    margin-top: 5%;
+}
+
+#uploadedContainerGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 5%;
+    margin-inline: 5%;
+}
+
+.displayCardProfile {
+    display: flex;
+    flex-direction: column;
+    width: 21vw;
+    transition: var(--transitionTime);
+}
+
+.displayCardProfile:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: var(--transitionTime);
+}
+
+.displayImgProfile {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 5px;
+}
+
+.displayCardWrapperProfile {
+    background-color: var(--blue);
+    border-radius: 5px;
+}
+
+.cardInfoWrapperProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cardLocationTitleProfile {
+    color: var(--white);
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.cardInfoTitleProfile {
+    color: var(--white);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.profileDeletePhotoButton {
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 5px;
+    background-color: white;
+    border: solid 2px red;
+    color: black;
+    border-radius: 5px;
+    transition: var(--transitionTime);
+}
+
+.profileDeletePhotoButton:hover {
+    cursor: pointer;
+    background-color: red;
+    transition: var(--transitionTime);
+    border: solid 2px black;
+    color: white;
+}

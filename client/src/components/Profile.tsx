@@ -1,6 +1,6 @@
 import '../styles/profile.css';
 import Login from './Login';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 
 function Profile( {...props} ) {
@@ -33,6 +33,7 @@ function Profile( {...props} ) {
         // Upload Cloudinary Link and Metadata to MongoDB
         axios.post('http://localhost:3000/photos', {
             photographer: props.authedID,
+            photographerName: props.firstName,
             cloudLink: imageUrl,
             sessionDate: sessionDate,
             sessionCountry: sessionCountry,
@@ -47,6 +48,48 @@ function Profile( {...props} ) {
           .catch(function (error) {
             console.log(error);
           });
+    }
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        getUploadedPhotos();
+    }, [])
+
+    const getUploadedPhotos = async () => {
+        await axios.get('http://localhost:3000/photos', {
+            params: {
+                photographer: props.authedID
+            }
+         })
+        .then((res) => {
+            console.log(res.data);
+            setImages(res.data);
+            console.log(images);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    const [markedDelPhoto, setMarkedDelPhoto] = useState();
+
+    useEffect(() => {
+        console.log(markedDelPhoto);
+    }, [markedDelPhoto])
+
+    function startDelete(id) {
+        setMarkedDelPhoto(id);
+        console.log(id);
+        //deletePhoto();
+    }
+
+    const deletePhoto = async () => {
+        await axios.delete('http://localhost:3000/photos', {
+            params: {
+                id: markedDelPhoto
+            }
+         });
     }
 
     return (
@@ -71,7 +114,7 @@ function Profile( {...props} ) {
                 {props.role == 'Photographer'? 
                 <>
                     <div id='photographerSection'>
-                        <h2>Upload Photos</h2>
+                        <h2 className='profileSubtitle'>Upload Photos</h2>
                         <form id='photoUploadForm'>
                             <input className='photoInput' type='text' placeholder='Country' onChange={(e) => {setSessionCountry(e.target.value)}} value={sessionCountry}/>
                             <input className='photoInput' type='text' placeholder='City/State' onChange={(e) => {setSessionCity(e.target.value)}} value={sessionCity}/>
@@ -81,6 +124,28 @@ function Profile( {...props} ) {
                             <input className="fileInput" type='file' onChange={(event) => {setImageSelected(event.target.files[0])}}/>
                             <button onClick={uploadImage}  id='photoUploadButton' type='submit'>Upload</button>
                         </form>
+                        <h2 className='profileSubtitle'>Uploaded Photos</h2>
+                        <div id='uploadedContainerGrid'>
+                        {images.map((photo) => {
+                            return (
+                                <>
+                                <div className='displayCardContainerProfile'>
+                                    <div className='displayCardProfile'>
+                                        <img className='displayImgProfile' src={photo.cloudLink} alt={photo.photographer}/>
+                                        <div className='displayCardWrapperProfile'>
+                                            <h2 className='cardLocationTitleProfile'>{photo.sessionCity} - {photo.sessionSpot}</h2>
+                                            <div className='cardInfoWrapperProfile'>
+                                                <h2 className='cardInfoTitleProfile'>Photographer: {photo.photographerName}</h2>
+                                                <h2 className='cardInfoTitleProfile'>Date: {photo.sessionDate}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button className='profileDeletePhotoButton'>Delete</button>
+                                </div>
+                                </>
+                            )
+                        })}
+                        </div>
                     </div>
                 </> 
                 : 

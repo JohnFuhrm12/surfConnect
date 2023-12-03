@@ -65,9 +65,9 @@ function Photos( {...props} ) {
                         <div className='displayCard'>
                             <img className='displayImg' src={photo.cloudLink} alt={photo.photographer}/>
                             <div className='displayCardWrapper'>
-                                <h2 className='cardLocationTitle'>{photo.photographer}</h2>
+                                <h2 className='cardLocationTitle'>{photo.sessionCity} - {photo.sessionSpot}</h2>
                                 <div className='cardInfoWrapper'>
-                                    <h2 className='cardInfoTitle'>Photographer: {photo.photographer}</h2>
+                                    <h2 className='cardInfoTitle'>Photographer: {photo.photographerName}</h2>
                                     <h2 className='cardInfoTitle'>Date: {photo.sessionDate}</h2>
                                 </div>
                             </div>

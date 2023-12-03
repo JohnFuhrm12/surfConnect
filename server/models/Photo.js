@@ -6,6 +6,10 @@ const photoSchema = new mongoose.Schema({
         required: true,
         ref: 'User'
     },
+    photographerName: {
+        type: String,
+        required: true
+    },
     cloudLink: {
         type: String,
         required: true
